@@ -31,3 +31,5 @@ def extract_job_description_html(url):
     resp.raise_for_status()  # raise error if status != 200
     return resp.text
 
+# Fuck this, I want to use TypeScript
+
