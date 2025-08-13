@@ -1,5 +1,7 @@
 ---
-
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+import "../styles/global.css";
 ---
 
 <html lang="en">
@@ -10,13 +12,10 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<a href="/">Home</a>
-	<a href="/about/">About</a>
-	<a href="/blog/">Blog</a>
 	<body>
+		<Navigation />
 		<h1>Astro</h1>
 		<h1>My Astro Site</h1>
+		<Footer />
 	</body>
-
-
 </html>
