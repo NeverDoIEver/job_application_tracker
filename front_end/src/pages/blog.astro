@@ -1,29 +1,20 @@
 ---
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
-import "../styles/global.css";
+import BlogPost from "../components/BlogPost.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "My Blog";
+const allPosts = Object.values(
+    import.meta.glob("../pages/posts/*.md", { eager: true }),
+);
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>Blog</title>
-    </head>
-    <body>
-        <Navigation />
-        <h1>Blog</h1>
-        <h2>... and my new Astro site!</h2>
-
-        <p>
-            I am working through Astro's introductory tutorial. This is the
-            second page on my website, and it's the first one I built myself!
-        </p>
-
-        <p>
-            This site will update as I complete more of the tutorial, so keep
-            checking back and see how my journey is going!
-        </p>
-        <Footer />
-    </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+    <h1>My Astro Learning Blog</h1>
+    <p>This is where I will post about my journey learning Astro.</p>
+    <ul>
+        {
+            allPosts.map((post: any) => (
+                <BlogPost url={post.url} title={post.frontmatter.title} />
+            ))
+        }
+    </ul>
+</BaseLayout>
